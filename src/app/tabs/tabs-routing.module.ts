@@ -18,9 +18,11 @@ const routes: Routes = [
           import("../inicio/inicio.module").then((m) => m.InicioPageModule),
       },
       {
-        path: "tab2",
+        path: "services",
         loadChildren: () =>
-          import("../tab2/tab2.module").then((m) => m.Tab2PageModule),
+          import("../servicos/servicos.module").then(
+            (m) => m.ServicosPageModule
+          ),
       },
       {
         path: "tab3",
@@ -29,7 +31,7 @@ const routes: Routes = [
       },
       {
         path: "",
-        redirectTo: "/tabs/login",
+        redirectTo: "/tabs/inicio",
         pathMatch: "full",
       },
     ],

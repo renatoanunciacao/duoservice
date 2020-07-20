@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./inicio/inicio.module").then((m) => m.InicioPageModule),
   },
+  {
+    path: "servicos",
+    loadChildren: () =>
+      import("./servicos/servicos.module").then((m) => m.ServicosPageModule),
+  },
 ];
 @NgModule({
   imports: [
