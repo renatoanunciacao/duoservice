@@ -14,7 +14,6 @@ export class ServicesService {
 
       this.http.get(url).subscribe(
         (result: any) => {
-          console.log(JSON.stringify(result));
           resolve(result);
         },
         (error) => {

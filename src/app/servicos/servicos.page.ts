@@ -1,4 +1,3 @@
-import { Services } from "./../model/services";
 import { Component, OnInit } from "@angular/core";
 import { ServicesService } from "../services/services.service";
 
@@ -8,14 +7,14 @@ import { ServicesService } from "../services/services.service";
   styleUrls: ["./servicos.page.scss"],
 })
 export class ServicosPage implements OnInit {
-  listaServices: any[];
+  listServices: any[];
 
   constructor(private services: ServicesService) {}
 
   ngOnInit() {}
 
   ionViewDidEnter() {
-    this.listaServices = [];
+    this.listServices = [];
     this.getAllServices();
   }
 
@@ -23,15 +22,15 @@ export class ServicosPage implements OnInit {
     this.services
       .getAll()
       .then((result: any) => {
-        console.log(JSON.stringify(result));
-        for (var i = 0; i < result.length; i++) {
-          const user = result[i];
-          this.listaServices.push(user);
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < result.length; i++) {
+          const service = result[i];
+          this.listServices.push(service);
         }
       })
       .catch((error: any) => {
         console.error({
-          message: "Erro ao listar os serviços. Erro: " + error.error,
+          message: "Erro ao listar os services. Erro: " + error.error,
         });
       });
   }
